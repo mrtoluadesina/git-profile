@@ -1,4 +1,4 @@
-@import './variables.css';
+@import "./variables.css";
 
 .dflex {
   display: flex;
@@ -26,20 +26,122 @@
   align-items: flex-end;
 }
 
+.flex-col {
+  flex-direction: column;
+}
+
 .container {
   margin: 0 auto;
 }
 
+.full-width {
+  width: 100%;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--offWhite);
+  text-align: center;
+  padding: 0.4501rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 0.375rem;
+  color: var(--black);
+}
+
+.btn.btn-primary {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.input {
+  display: flex;
+  align-items: center;
+  padding: 0.4501rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 0.375rem;
+  color: var(--black);
+}
+
+.x-small-text {
+  font-size: var(--xsmallFontSize);
+}
+
+.small-text {
+  font-size: var(--smallFontSize);
+}
+
+.svg-icon {
+  fill: currentColor;
+}
+
 .indicator {
   position: absolute;
-    top: -6px;
-    left: 6px;
-    z-index: 2;
-    width: 14px;
-    height: 14px;
-    color: var(--white);
-    background-image: linear-gradient(var(--lightBlue),var(--darkBlue));
-    background-clip: padding-box;
-    border: 2px solid var(--black);
-    border-radius: 50%;
+  top: -6px;
+  left: 6px;
+  z-index: 2;
+  width: 14px;
+  height: 14px;
+  color: var(--white);
+  background-image: linear-gradient(var(--lightBlue), var(--darkBlue));
+  background-clip: padding-box;
+  border: 2px solid var(--black);
+  border-radius: 50%;
+}
+
+.caret {
+  width: 0;
+  height: 0;
+  margin-left: 0.5rem;
+  content: "";
+  border-top-style: solid;
+  border-top-width: 4px;
+  border-right: 4px solid transparent;
+  border-bottom: 0 solid transparent;
+  border-left: 4px solid transparent;
+}
+
+.mt-1 {
+  margin-top: 1rem;
+}
+
+.mb {
+  margin-bottom: 0.15rem;
+}
+
+.mr-1 {
+  margin-right: 0.4rem;
+}
+
+.ml-auto {
+  margin-left: auto;
+}
+
+.mr-auto {
+  margin-right: auto;
+}
+
+.show-hide {
+  display: none;
+}
+
+.switch-col-row {
+  flex-direction: column;
+}
+
+.switch-row-col {
+  flex-direction: row;
+}
+
+@media (min-width: 768px) {
+  .show-hide {
+    display: unset;
+  }
+  .switch-col-row {
+    flex-direction: row;
+  }
+  .switch-row-col {
+    flex-direction: column;
+  }
 }
