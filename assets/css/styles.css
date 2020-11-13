@@ -11,11 +11,17 @@ html, body {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-size: var(--defaultFontSize);
   scroll-behavior: smooth;
+  line-height: 1;
+  color: var(--black);
 }
 
 a {
   text-decoration: none;
   cursor: pointer;
+}
+
+img, input {
+  width: 100%;
 }
 
 .header {
@@ -26,10 +32,6 @@ a {
 
 .header a {
   color: var(--white);
-}
-
-.header .container .svg-icon {
-  fill: currentColor;
 }
 
 .header .container .header-actions {
@@ -56,10 +58,139 @@ a {
 .main .container .side-bar {
   width: 100%;
   flex-direction: column;
+  margin-bottom: 2rem;
+}
+
+.main .container .side-bar .user-info {
+  position: relative;
+}
+
+.main .container .side-bar .user-info .profile-picture .avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.main .container .side-bar .user-info .user-bio {
+  margin-left: 1.25rem;
+}
+
+.main .container .side-bar .user-info .profile-picture .status {
+  position: absolute;
+  bottom: -3.5rem;
+  width: 100%;
+  height: 30px;
+  background-color: var(--white);
+  border: 1px solid var(--grey);
+  border-radius: 0.375rem;
+  padding: 0.35rem;
+}
+
+.main .container .side-bar .user-info .profile-picture .status .status-icon {
+  width: 15px;
+  margin-right: 0.65rem;
+}
+
+.main .container .side-bar .user-info .profile-picture .status .small-text {
+  font-size: var(--xsmallFontSize);
+}
+
+.main .container .side-bar .profile-details {
+  margin-top: 4.35rem;
+}
+
+.main .container .side-bar .profile-details .btn {
+  margin: 1rem 0;
+}
+
+.main .container .side-bar .profile-details .details-list .list-item {
+  padding: 0.25rem 0;
+  margin: 0 0.25rem
+}
+
+.main .container .side-bar .profile-details .details-list .list-item .list-item-icon {
+  width: 1rem;
+  fill: var(--nearBlack);
+}
+
+.main .container .side-bar .other-details {
+  border-top: 1px solid var(--border);
+  margin-top: 1rem;
+}
+
+.main .container .content-area {
+  position: relative;
+  flex-direction: column;
 }
 
 @media (min-width: 768px) {
+  
   .main .container {
     flex-direction: row;
+    max-width: 1248px;
   }
+
+  .main .container .side-bar {
+    flex: 0 0 25%;
+    padding: 0 1rem;
+  }
+
+  .main .container .side-bar .user-info {
+    align-items: flex-start;
+  }
+
+  .main .container .side-bar .user-info .profile-picture .avatar {
+    width: 280px;
+    height: 280px;
+  }
+
+  .main .container .side-bar .user-info .user-bio {
+    margin-left: 0;
+    margin-top: 1rem;
+  }
+  
+  .main .container .side-bar .user-info .profile-picture .status {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 38px;
+    height: 38px;
+    bottom: 80px;
+    right: 10px;
+    border-radius: 50%;
+  }
+
+  .main .container .side-bar .user-info .profile-picture .status .status-icon {
+    margin-right: 0;
+  }
+
+  .main .container .side-bar .user-info .profile-picture .status .x-small-text {
+    display: none;
+  }
+
+  .main .container .side-bar .profile-details {
+    margin-top: 1.3rem;
+  }
+
+  .main .container .content-area {
+    flex: 0 0 75%;
+    padding: 0 1rem;
+  }
+
+  .main .container .content-area .repo-actions {
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .main .container .content-area .repo-actions .search {
+    flex: 0 0 60%;
+  }
+
+  .main .container .content-area .repo-actions .repo-action-buttons {
+    flex: 0 0 38%;
+    margin-top: 0;
+  }
+
+
 }
