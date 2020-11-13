@@ -1,0 +1,65 @@
+@import './variables.css';
+@import './common.css';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: var(--defaultFontSize);
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.header {
+  position: relative;
+  padding: 1rem;
+  background-color: var(--black);
+}
+
+.header a {
+  color: var(--white);
+}
+
+.header .container .svg-icon {
+  fill: currentColor;
+}
+
+.header .container .header-actions {
+  display: flex;
+  align-items: center;
+}
+
+.header .container .header-actions .notifications {
+  display: flex;
+}
+
+.header .container .header-actions .notifications .notification-bell {
+  position: relative;
+}
+
+.main {
+  padding: 1rem;
+}
+
+.main .container {
+  flex-direction: column;
+}
+
+.main .container .side-bar {
+  width: 100%;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .main .container {
+    flex-direction: row;
+  }
+}
