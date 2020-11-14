@@ -139,6 +139,14 @@ img, input {
   font-size: var(--h3FontSize);
 }
 
+.main .container .content-area .repos .repo .repo-details .repo-description {
+  color: var(--darkGrey);
+}
+
+.main .container .content-area .repos .repo .btn {
+  color: var(--nearBlack);
+}
+
 
 @media (min-width: 768px) {
   .header {
@@ -157,6 +165,7 @@ img, input {
   .main .container {
     flex-direction: row;
     max-width: 1248px;
+    align-items: flex-start;
   }
 
   .main .container .side-bar {
