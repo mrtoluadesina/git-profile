@@ -41,6 +41,41 @@ input {
   color: var(--white);
 }
 
+.header .container {
+  position: relative;
+}
+
+.header .container.header-menu-drawer.show-nav {
+  height: 380px;
+}
+
+.header .container .nav .menu {
+  position: absolute;
+  width: 100%;
+  top: 3rem;
+}
+
+.header .container .nav .menu .nav-menu-item {
+  padding: 0.75rem 0;
+  border-bottom: 0.5px solid var(--offGrey);
+}
+
+.header .container .nav .menu .nav-menu-item:last-child {
+  border-bottom: 0;
+}
+
+.header .container .nav .menu .input {
+  border-color: var(--offGrey);
+}
+
+.header .container .nav .menu .nav-menu-item .user-avi {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 0.5rem;
+}
+
 .header .container .header-actions {
   display: flex;
   align-items: center;
@@ -54,12 +89,19 @@ input {
   position: relative;
 }
 
+.main {
+  background-color: var(--white);
+  position: relative;
+  z-index: 1;
+}
+
 .main .web-nav {
-  padding: 2rem 2rem 0;
+  padding: 0 2rem;
   border-bottom: 1px solid var(--border);
   position: sticky;
   top: 0;
   background-color: var(--white);
+  z-index: 1;
 }
 
 .main .web-nav .container {
@@ -120,6 +162,7 @@ input {
 
 .main .container .side-bar .user-info {
   position: relative;
+  z-index: 2;
 }
 
 .main .container .side-bar .user-info .profile-picture .avatar {
@@ -267,6 +310,11 @@ input {
     padding: 0.875rem 2rem;
   }
 
+  .header .container {
+    min-height: 0;
+    align-items: center;
+  }
+
   .header .container .logo {
     order: -1;
     margin-right: 1rem;
@@ -278,6 +326,16 @@ input {
 
   .header .container .nav .hamburger {
     display: none;
+  }
+
+  .header .container .nav .menu {
+    position: relative;
+    top: 0;
+  }
+
+  .header .container .nav .menu .nav-menu-item {
+    padding-bottom: 0;
+    border-bottom: 0;
   }
 
   .main .container {

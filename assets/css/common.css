@@ -66,6 +66,7 @@
   border: 1px solid var(--border);
   border-radius: 0.375rem;
   color: var(--black);
+  background-color: transparent;
 }
 
 .x-small-text {
@@ -153,6 +154,13 @@
 .show-hide {
   display: none;
 }
+.hide-show {
+  display: flex;
+}
+
+.clear-space {
+  height: 2rem;
+}
 
 .switch-col-row {
   flex-direction: column;
@@ -173,6 +181,9 @@
 @media (min-width: 768px) {
   .show-hide {
     display: flex;
+  }
+  .hide-show {
+    display: none;
   }
   .switch-col-row {
     flex-direction: row;
