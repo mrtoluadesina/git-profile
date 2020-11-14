@@ -147,6 +147,10 @@
   margin-right: auto;
 }
 
+.m-lr-0-5 {
+  margin: 0 0.5rem;
+}
+
 .p-lr-1 {
   padding: 1rem;
 }
