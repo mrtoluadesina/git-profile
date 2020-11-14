@@ -1,5 +1,5 @@
-@import './variables.css';
-@import './common.css';
+@import "./variables.css";
+@import "./common.css";
 
 * {
   margin: 0;
@@ -7,8 +7,9 @@
   box-sizing: border-box;
 }
 
-html, body {
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+html,
+body {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   font-size: var(--defaultFontSize);
   scroll-behavior: smooth;
   line-height: 1;
@@ -20,7 +21,8 @@ a {
   cursor: pointer;
 }
 
-img, input {
+img,
+input {
   width: 100%;
 }
 
@@ -106,7 +108,7 @@ img, input {
 
 .main .container .side-bar .profile-details .details-list .list-item {
   padding: 0.25rem 0;
-  margin: 0 0.25rem
+  margin: 0 0.25rem;
 }
 
 .main .container .side-bar .profile-details .details-list .list-item .list-item-icon {
@@ -124,13 +126,18 @@ img, input {
   flex-direction: column;
 }
 
+.main .container .content-area .repo-actions .repo-action-buttons .ml-auto {
+  margin-left: 0;
+  margin-top: 0.5rem;
+}
+
 .main .container .content-area .repos {
   margin-top: 1rem;
   border-top: 1px solid var(--border);
 }
 
 .main .container .content-area .repos .repo {
-  padding: 1rem 0;
+  padding: 1.3rem 0;
   border-bottom: 1px solid var(--border);
 }
 
@@ -143,10 +150,23 @@ img, input {
   color: var(--darkGrey);
 }
 
-.main .container .content-area .repos .repo .btn {
+.main .container .content-area .repos .repo .btn,
+.main .container .content-area .repos .repo .repo-meta .meta-box {
   color: var(--nearBlack);
 }
 
+.main .container .content-area .repos .repo .repo-meta .meta-box .language-color {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+}
+
+@media (min-width: 375px) {
+  .main .container .content-area .repo-actions .repo-action-buttons .ml-auto {
+    margin-left: auto;
+    margin-top: 0;
+  }
+}
 
 @media (min-width: 768px) {
   .header {
@@ -186,7 +206,7 @@ img, input {
     margin-left: 0;
     margin-top: 1rem;
   }
-  
+
   .main .container .side-bar .user-info .profile-picture .status {
     display: flex;
     justify-content: center;
@@ -228,6 +248,4 @@ img, input {
     flex: 0 0 38%;
     margin-top: 0;
   }
-
-
 }
