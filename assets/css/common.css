@@ -146,6 +146,10 @@
   margin-right: auto;
 }
 
+.p-lr-1 {
+  padding: 1rem;
+}
+
 .show-hide {
   display: none;
 }
@@ -168,7 +172,7 @@
 
 @media (min-width: 768px) {
   .show-hide {
-    display: unset;
+    display: flex;
   }
   .switch-col-row {
     flex-direction: row;
