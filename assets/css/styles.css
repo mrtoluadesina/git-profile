@@ -124,6 +124,22 @@ img, input {
   flex-direction: column;
 }
 
+.main .container .content-area .repos {
+  margin-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.main .container .content-area .repos .repo {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.main .container .content-area .repos .repo .repo-details .repo-title a {
+  color: var(--linkBlue);
+  font-size: var(--h3FontSize);
+}
+
+
 @media (min-width: 768px) {
   .header {
     padding: 1rem 2rem;

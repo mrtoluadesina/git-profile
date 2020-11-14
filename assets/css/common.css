@@ -114,6 +114,10 @@
   margin-right: 0.4rem;
 }
 
+.ml-0-4 {
+  margin-left: 0.4rem;
+}
+
 .ml-auto {
   margin-left: auto;
 }
@@ -132,6 +136,14 @@
 
 .switch-row-col {
   flex-direction: row;
+}
+
+.badge {
+  padding: 0.1rem 0.34rem;
+  font-size: var(--xsmallFontSize);
+  font-weight: var(--bold);
+  border: 1px solid var(--border);
+  border-radius: 2rem;
 }
 
 @media (min-width: 768px) {
