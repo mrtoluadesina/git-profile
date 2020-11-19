@@ -11,7 +11,28 @@ button.addEventListener('click', (e) => {
 (function () {
   const getRepos = (username) => `{
     user(login: "${username}") {
-      repositories(last: 20) {
+      name
+      login
+      avatarUrl
+      bio
+      email
+      company
+      websiteUrl
+      followers {
+        totalCount
+      }
+      following {
+        totalCount
+      }
+      starredRepositories {
+        totalCount
+      }
+      status {
+        emojiHTML
+        message
+      }
+      location
+      repositories(first: 20, ownerAffiliations: OWNER, orderBy: {field: PUSHED_AT, direction: DESC}) {
         edges {
           node {
             id
@@ -25,6 +46,11 @@ button.addEventListener('click', (e) => {
             stargazerCount
             forkCount
             updatedAt
+            pushedAt
+            licenseInfo {
+              name
+            }
+            url
           }
         }
       }
@@ -34,7 +60,7 @@ button.addEventListener('click', (e) => {
   //Converts Datetime to last updated format
 function updatedAt(date) {
   let repoDate = new Date(date);
-  
+
   let today = new Date();
 
   const minute = 60 * 1000,
@@ -119,24 +145,24 @@ function updatedAt(date) {
           src=${user.avatarUrl}
           alt="avatar" />
       </div>
-      <div class="status dflex justify-start">
+      ${user.status ? `<div class="status dflex justify-start">
         <span class="status-icon">
           ${user.status.emojiHTML}
         </span>
         <p class="x-small-text">${user.status.message}</p>
-      </div>
+      </div>` : ''}
     </div>
     <div class="user-bio">
-      <h2>${user.name}</h2>
-      <p>${user.login}</p>
+      <h2>${user.name ? user.name : ''}</h2>
+      <p>${user.login ? user.login : ''}</p>
     </div>
   </section>
   <section class="profile-details dflex flex-col align-start full-width mb">
-    <p class="mb">${user.bio}</p>
+    <p class="mb">${user.bio ? user.bio : ''}</p>
     <button class="btn full-width">Edit profile</button>
     <div class="details-list dflex flex-col align-start">
       <div class="dflex flex-col show-hide">
-        <div class="list-item dflex justify-start">
+        ${user.company ? `<div class="list-item dflex justify-start">
           <svg class="list-item-icon icon-organization mr-0-4" viewBox="0 0 16 16" version="1.1" width="16"
             height="16" aria-hidden="true">
             <path fill-rule="evenodd"
@@ -144,8 +170,8 @@ function updatedAt(date) {
             </path>
           </svg>
           <p class="small-text"><strong>${user.company}</strong></p>
-        </div>
-        <div class="list-item dflex justify-start">
+        </div>` : ''}
+        ${user.location ? `<div class="list-item dflex justify-start">
           <svg class="list-item-icon icon-location mr-0-4" viewBox="0 0 16 16" version="1.1" width="16"
             height="16" aria-hidden="true">
             <path fill-rule="evenodd"
@@ -153,9 +179,9 @@ function updatedAt(date) {
             </path>
           </svg>
           <p class="small-text">${user.location}</p>
-        </div>
+        </div>` : ''}
       </div>
-      <div class="list-item dflex justify-start">
+      ${user.email ? `<div class="list-item dflex justify-start">
         <svg class="list-item-icon icon-mail mr-0-4" viewBox="0 0 16 16" version="1.1" width="16" height="16"
           aria-hidden="true">
           <path fill-rule="evenodd"
@@ -163,8 +189,8 @@ function updatedAt(date) {
           </path>
         </svg>
         <p class="small-text">${user.email}</p>
-      </div>
-      <div class="list-item dflex justify-start">
+      </div>` : ''}
+      ${user.websiteUrl ? `<div class="list-item dflex justify-start">
         <svg class="list-item-icon icon-web mr-0-4" viewBox="0 0 16 16" version="1.1" width="16" height="16"
           aria-hidden="true">
           <path fill-rule="evenodd"
@@ -172,9 +198,9 @@ function updatedAt(date) {
           </path>
         </svg>
         <p class="small-text">${user.websiteUrl}</p>
-      </div>
+      </div>` : ''}
       <div class="list-group dflex flex-wrap justify-start">
-        <div class="list-item dflex justify-start">
+        ${user.followers ? `<div class="list-item dflex justify-start">
           <svg class="list-item-icon icon-user mr-0-4" height="16" viewBox="0 0 16 16" version="1.1" width="16"
             aria-hidden="true">
             <path fill-rule="evenodd"
@@ -182,12 +208,12 @@ function updatedAt(date) {
             </path>
           </svg>
           <p class="small-text"><strong>${user.followers.totalCount}</strong> followers</p>
-        </div>
-        ·
+        </div>` : ''}
+        ${user.following ? `·
         <div class="list-item dflex justify-start">
           <p class="small-text"><strong>${user.following.totalCount}</strong> following</p>
-        </div>
-        ·
+        </div>` : ''}
+        ${user.starredRepositories ? `·
         <div class="list-item dflex justify-start">
           <svg class="list-item-icon icon-rate mr-0-4" height="16" viewBox="0 0 16 16" version="1.1" width="16"
             aria-hidden="true">
@@ -196,7 +222,7 @@ function updatedAt(date) {
             </path>
           </svg>
           <p class="small-text"><strong>${user.starredRepositories.totalCount}</strong></p>
-        </div>
+        </div>` : ''}
       </div>
     </div>
   </section>`
@@ -211,7 +237,7 @@ function updatedAt(date) {
           <a href="/">${node.name}</a>
           ${node.isPrivate ? `<span class="badge dflex ml-0-4">Private</span>` : ''}
         </h3>
-        ${node.shortDescriptionHTML && `<p class="repo-description small-text mt-0-8">${node.shortDescriptionHTML}</p>`}
+        ${node.shortDescriptionHTML ? `<p class="repo-description small-text mt-0-8">${node.shortDescriptionHTML}</p>` : ''}
         <div class="repo-meta dflex justify-start mt-0-4 flex-wrap">
           ${node.primaryLanguage ? `<div class="meta-box dflex justify-start mr-1 mt-0-4">
             <span class="language-color mr-0-4" style="background-color: ${node.primaryLanguage?.color}"></span>
@@ -240,7 +266,7 @@ function updatedAt(date) {
             <p class="x-small-text">${node.licenseInfo?.name}</p>
           </div>` : ''}
           <div class="meta-box dflex justify-start mr-0-8 mt-0-4">
-            <p class="x-small-text">${updatedAt(node.updatedAt)}</p>
+            <p class="x-small-text">${updatedAt(node.pushedAt)}</p>
           </div>
         </div>
       </div>
@@ -261,8 +287,8 @@ function updatedAt(date) {
     method: 'POST',
     headers: {
       "Content-Type": "application/json",
-      "Authorization": `Bearer 38587ab3c67e83f02aef02280a24fbea58832c05`
-      // "Authorization": `Bearer ${process.env.GIT_ACCESS}`
+      //Change Token here to be able to see list of repositories
+      "Authorization": `Bearer [token]`
     },
     body: JSON.stringify({
       // Change username here to fetch github user repos - last:20
@@ -271,17 +297,13 @@ function updatedAt(date) {
   }
 
 
-  // fetch('https://api.github.com/graphql', config)
-  //   .then(res => res.json())
-  //   .then(res => {
-  //     console.log(res);
-  //     let repoContainer = document.querySelector('#repo-container');
-  //     repoContainer.innerHTML = renderRepos(res);
-  //   });
-
-  let userDetailsContainer = document.querySelector("#user-details")
-  let repoContainer = document.querySelector('#repo-container');
-  userDetailsContainer.innerHTML = renderUserData(res);
-  repoContainer.innerHTML = renderRepos(res);
+  fetch('https://api.github.com/graphql', config)
+    .then(res => res.json())
+    .then(res => {
+      let userDetailsContainer = document.querySelector("#user-details");
+      let repoContainer = document.querySelector('#repo-container');
+      userDetailsContainer.innerHTML = renderUserData(res);
+      repoContainer.innerHTML = renderRepos(res);
+    });
 
 })();
