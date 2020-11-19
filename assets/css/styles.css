@@ -9,7 +9,8 @@
 
 html,
 body {
-  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji,
+    Segoe UI Emoji;
   font-size: var(--defaultFontSize);
   scroll-behavior: smooth;
   line-height: 1;
@@ -43,7 +44,6 @@ input {
 
 .header .container {
   position: relative;
-  max-width: 1440px;
 }
 
 .header .container.header-menu-drawer.show-nav {
@@ -96,7 +96,7 @@ input {
   position: relative;
 }
 
-.header .container .header-actions .add, 
+.header .container .header-actions .add,
 .header .container .header-actions .user {
   margin: 0 0.5rem;
 }
@@ -160,7 +160,7 @@ input {
 
 .main .web-nav .container .nav-list .nav-list-item .svg-icon {
   margin: 0.5rem 0.45rem 0.5rem 0;
-  fill: var(--lightGrey)
+  fill: var(--lightGrey);
 }
 
 .main .web-nav .container .nav-list .nav-list-item .badge {
@@ -194,6 +194,17 @@ input {
 
 .main .container .side-bar .user-info .user-bio {
   margin-left: 1.25rem;
+}
+
+.main .container .side-bar .user-info .user-bio h2 {
+  font-size: 1.625rem;
+  margin-bottom: 0.35rem;
+}
+
+.main .container .side-bar .user-info .user-bio p {
+  font-size: 1.25rem;
+  opacity: 0.7;
+  font-weight: 300;
 }
 
 .main .container .side-bar .user-info .profile-picture .status {
@@ -283,6 +294,11 @@ input {
   border: 0;
 }
 
+.main .container .content-area .repo-actions,
+.main .container .content-area .repos {
+  padding: 1rem;
+}
+
 .main .container .content-area .repo-actions .repo-action-buttons .ml-auto {
   margin-left: 0;
   margin-top: 0.5rem;
@@ -294,8 +310,12 @@ input {
 }
 
 .main .container .content-area .repos .repo {
-  padding: 1.3rem 0;
+  padding: 1.5rem 0;
   border-bottom: 1px solid var(--border);
+}
+
+.main .container .content-area .repos .repo .repo-details .repo-title {
+  margin-bottom: 0.4rem;
 }
 
 .main .container .content-area .repos .repo .repo-details .repo-title a {
@@ -413,7 +433,7 @@ input {
     bottom: 15px;
     right: 0px;
     border-radius: 50%;
-}
+  }
 
   .main .container .side-bar .user-info .profile-picture .status .status-icon {
     margin-right: 0;
@@ -434,6 +454,12 @@ input {
 
   .main .container .content-area {
     width: 75%;
+    padding: 1rem;
+  }
+
+  .main .container .content-area .repo-actions,
+  .main .container .content-area .repos {
+    padding: 0;
   }
 
   .main .container .content-area .mobile-nav {
@@ -458,7 +484,7 @@ input {
 @media (min-width: 1024px) {
   .header .container .nav .menu .input {
     width: 250px;
-}
+  }
   .main .container .side-bar .user-info .profile-picture .avatar {
     width: 216px;
     height: 216px;
@@ -501,5 +527,4 @@ input {
 }
 
 @media (min-width: 1440px) {
-  
 }
