@@ -296,7 +296,6 @@ function updatedAt(date) {
     }),
   }
 
-
   fetch('https://api.github.com/graphql', config)
     .then(res => res.json())
     .then(res => {
