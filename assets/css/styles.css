@@ -9,7 +9,8 @@
 
 html,
 body {
-  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji,
+    Segoe UI Emoji;
   font-size: var(--defaultFontSize);
   scroll-behavior: smooth;
   line-height: 1;
@@ -46,7 +47,7 @@ input {
 }
 
 .header .container.header-menu-drawer.show-nav {
-  height: 380px;
+  height: 390px;
 }
 
 .header .container .nav .menu {
@@ -58,6 +59,7 @@ input {
 .header .container .nav .menu .nav-menu-item {
   padding: 0.75rem 0;
   border-bottom: 0.5px solid var(--offGrey);
+  font-size: var(--smallFontSize);
 }
 
 .header .container .nav .menu .nav-menu-item:last-child {
@@ -66,9 +68,12 @@ input {
 
 .header .container .nav .menu .input {
   border-color: var(--offGrey);
+  padding: 0.2501rem 0.5rem;
+  height: 28px;
 }
 
-.header .container .nav .menu .nav-menu-item .user-avi {
+.header .container .nav .menu .nav-menu-item .user-avi,
+.header .container .header-actions .user .user-avi {
   width: 16px;
   height: 16px;
   border-radius: 50%;
@@ -79,14 +84,29 @@ input {
 .header .container .header-actions {
   display: flex;
   align-items: center;
+  color: var(--white);
 }
 
 .header .container .header-actions .notifications {
   display: flex;
+  margin: 0 0.5rem;
 }
 
 .header .container .header-actions .notifications .notification-bell {
   position: relative;
+}
+
+.header .container .header-actions .add,
+.header .container .header-actions .user {
+  margin: 0 0.5rem;
+}
+
+.header .container .header-actions .user .user-avi {
+  margin-right: 0;
+}
+
+.header .container .header-actions .caret {
+  margin-left: 0.2rem;
 }
 
 .main {
@@ -140,7 +160,7 @@ input {
 
 .main .web-nav .container .nav-list .nav-list-item .svg-icon {
   margin: 0.5rem 0.45rem 0.5rem 0;
-  fill: var(--lightGrey)
+  fill: var(--lightGrey);
 }
 
 .main .web-nav .container .nav-list .nav-list-item .badge {
@@ -174,6 +194,17 @@ input {
 
 .main .container .side-bar .user-info .user-bio {
   margin-left: 1.25rem;
+}
+
+.main .container .side-bar .user-info .user-bio h2 {
+  font-size: 1.625rem;
+  margin-bottom: 0.35rem;
+}
+
+.main .container .side-bar .user-info .user-bio p {
+  font-size: 1.25rem;
+  opacity: 0.7;
+  font-weight: 300;
 }
 
 .main .container .side-bar .user-info .profile-picture .status {
@@ -263,6 +294,11 @@ input {
   border: 0;
 }
 
+.main .container .content-area .repo-actions,
+.main .container .content-area .repos {
+  padding: 1rem;
+}
+
 .main .container .content-area .repo-actions .repo-action-buttons .ml-auto {
   margin-left: 0;
   margin-top: 0.5rem;
@@ -274,8 +310,12 @@ input {
 }
 
 .main .container .content-area .repos .repo {
-  padding: 1.3rem 0;
+  padding: 1.5rem 0;
   border-bottom: 1px solid var(--border);
+}
+
+.main .container .content-area .repos .repo .repo-details .repo-title {
+  margin-bottom: 0.4rem;
 }
 
 .main .container .content-area .repos .repo .repo-details .repo-title a {
@@ -334,8 +374,24 @@ input {
   }
 
   .header .container .nav .menu .nav-menu-item {
-    padding-bottom: 0;
+    padding: 0;
     border-bottom: 0;
+    margin: 0 0.45rem;
+  }
+
+  .header .container .nav .menu .nav-menu-item .input input {
+    background: transparent;
+    border: 0;
+    width: 100%;
+  }
+
+  .header .container .nav .menu .nav-menu-item .input .search-icon {
+    width: 19px;
+    height: 100%;
+  }
+
+  .header .container .nav .menu .nav-menu-item.full-width {
+    width: unset;
   }
 
   .main .container {
@@ -345,7 +401,7 @@ input {
   }
 
   .main .container .side-bar {
-    flex: 0 0 25%;
+    width: 25%;
     padding: 0 1rem;
     margin-top: -2rem;
   }
@@ -354,9 +410,13 @@ input {
     align-items: flex-start;
   }
 
+  .main .container .side-bar .user-info .profile-picture {
+    position: relative;
+  }
+
   .main .container .side-bar .user-info .profile-picture .avatar {
-    width: 280px;
-    height: 280px;
+    width: 168px;
+    height: 168px;
   }
 
   .main .container .side-bar .user-info .user-bio {
@@ -370,8 +430,8 @@ input {
     align-items: center;
     width: 38px;
     height: 38px;
-    bottom: 80px;
-    right: 10px;
+    bottom: 15px;
+    right: 0px;
     border-radius: 50%;
   }
 
@@ -387,8 +447,19 @@ input {
     margin-top: 1.3rem;
   }
 
+  .main .container .side-bar .profile-details .details-list .list-group {
+    order: -1;
+    margin-bottom: 1rem;
+  }
+
   .main .container .content-area {
-    flex: 0 0 75%;
+    width: 75%;
+    padding: 1rem;
+  }
+
+  .main .container .content-area .repo-actions,
+  .main .container .content-area .repos {
+    padding: 0;
   }
 
   .main .container .content-area .mobile-nav {
@@ -401,11 +472,59 @@ input {
   }
 
   .main .container .content-area .repo-actions .search {
-    flex: 0 0 60%;
+    width: 36%;
   }
 
   .main .container .content-area .repo-actions .repo-action-buttons {
-    flex: 0 0 38%;
+    width: 62%;
     margin-top: 0;
   }
+}
+
+@media (min-width: 1024px) {
+  .header .container .nav .menu .input {
+    width: 250px;
+  }
+  .main .container .side-bar .user-info .profile-picture .avatar {
+    width: 216px;
+    height: 216px;
+  }
+
+  .main .container .side-bar .user-info .profile-picture .status {
+    bottom: 20px;
+    right: 5px;
+  }
+
+  .main .container .content-area .repo-actions .search {
+    width: 50%;
+  }
+
+  .main .container .content-area .repo-actions .repo-action-buttons {
+    width: 48%;
+    margin-top: 0;
+  }
+}
+
+@media (min-width: 1240px) {
+  .main .container .side-bar .user-info .profile-picture .avatar {
+    width: 280px;
+    height: 280px;
+  }
+
+  .main .container .side-bar .user-info .profile-picture .status {
+    bottom: 30px;
+    right: 10px;
+  }
+
+  .main .container .content-area .repo-actions .search {
+    width: 60%;
+  }
+
+  .main .container .content-area .repo-actions .repo-action-buttons {
+    width: 38%;
+    margin-top: 0;
+  }
+}
+
+@media (min-width: 1440px) {
 }
